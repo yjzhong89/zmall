@@ -12,6 +12,11 @@
   <artifactId>zmall-coupon</artifactId>
 
   <dependencies>
+    <dependency>
+      <groupId>com.zyj</groupId>
+      <artifactId>zmall-common</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
     <!--openfeign-->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
