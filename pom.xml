@@ -13,6 +13,7 @@
     <module>zmall-order</module>
     <module>zmall-ware</module>
     <module>zmall-common</module>
+    <module>zmall-gateway</module>
   </modules>
   <packaging>pom</packaging>
 
