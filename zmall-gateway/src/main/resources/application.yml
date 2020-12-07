@@ -5,11 +5,33 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: baidu_route
-          uri: http://www.baidu.com
+        - id: coupon_route
+          uri: lb://zmall-coupon
           predicates:
-            - Query=url,baidu
-        - id: qq_route
-          uri: http://www.qq.com
+            - Path=/api/coupon/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: member_route
+          uri: lb://zmall-member
           predicates:
-            - Query=url,qq
+            - Path=/api/member/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: order_route
+          uri: lb://zmall-order
+          predicates:
+            - Path=/api/order/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: product_route
+          uri: lb://zmall-product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: ware_route
+          uri: lb://zmall-ware
+          predicates:
+            - Path=/api/ware/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
